@@ -1,0 +1,18 @@
+//match the order of the enum in MewDirector.h, just with the string chapter ids
+chapter_id_enum.append [
+	manor
+]
+
+pause_menu_completion_hints.patch {
+	map_areas.append { //which save file flag needs to be checked for showing this area on the map
+		manor mapflag_SewersUnlocked
+	}
+}
+
+chapter_names.append {
+	manor AREA_NAME_DESERT
+}
+
+reverse_paths.append {
+	manor [alley]
+}

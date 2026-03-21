@@ -1,0 +1,34 @@
+manor {
+    combat_background BunkerBG // using bunker as a placeholder.
+    combat_ui_background UI_Background_Crater // using crater as a placeholder.
+    
+    static_1x1_a DesertRocks // using desert assets as placeholder, etc.
+    static_1x1_b DesertCactus
+    static_1x1_c DesertRocks
+    
+    static_2x2_a Desert2x2
+    static_2x2_b Desert2x2
+    
+    static_tall_a DesertTall
+    static_tall_b DesertTall2
+    
+    debris DesertDebris
+
+    event_piece_frame manor
+
+    global_objects {
+        Fly {
+            count [0 20]
+        }
+    }
+
+    reverb {
+        battle {
+            preset Forest
+            amount .35
+            ReverbDelay .45
+            DecayTime 1.68
+            volume_adjustment 1.5
+        }
+    }
+}

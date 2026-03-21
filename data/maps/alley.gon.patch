@@ -1,0 +1,17 @@
+nodes.append {
+    //new exits added to alley
+    exit_manor {
+        type exit
+        next_map manor.gon
+        locked true
+        override_art MapNodeExit_Manor
+    }
+}
+
+flags.append {
+	mapflag_SewersUnlocked { //flag that controls when new exit is unlocked (using sewers for demonstration purposes)
+        exit_manor {
+            locked false
+        }
+    }
+}
