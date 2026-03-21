@@ -10,7 +10,7 @@ pause_menu_completion_hints.patch {
 }
 
 chapter_names.append {
-	manor AREA_NAME_DESERT
+	manor AREA_NAME_MANOR
 }
 
 reverse_paths.append {
