@@ -1,4 +1,4 @@
-manor {
+mansion {
     combat_background BunkerBG // using bunker as a placeholder.
     combat_ui_background UI_Background_Crater // using crater as a placeholder.
     
@@ -14,7 +14,7 @@ manor {
     
     debris DesertDebris
 
-    event_piece_frame manor
+    event_piece_frame mansion
 
     global_objects {
         Fly {
