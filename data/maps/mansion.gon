@@ -3,6 +3,7 @@ chapter_id mansion
 tileset mansion
 world_name_frame mansion
 area_name AREA_NAME_MANSION
+intro_cutscene mansion
 act 1
 chapter 2
 version 1
