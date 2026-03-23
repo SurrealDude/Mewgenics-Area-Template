@@ -1,6 +1,6 @@
 mansion {
-    combat_background BunkerBG // using bunker as a placeholder.
-    combat_ui_background UI_Background_Crater // using crater as a placeholder.
+    combat_background MansionBG
+    combat_ui_background UI_Background_Mansion
     
     static_1x1_a DesertRocks // using desert assets as placeholder, etc.
     static_1x1_b DesertCactus

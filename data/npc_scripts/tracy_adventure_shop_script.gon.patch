@@ -1,0 +1,9 @@
+sequences.append {
+	welcome_mansion {
+		cancelable true
+		delay .5
+		dialog NPC_TRACY_SHOP_WELCOME_MANSION_1
+		dialog_and_autopass NPC_TRACY_SHOP_WELCOME_MANSION_2
+		wait_for_cancel 1
+	}
+}
