@@ -6,3 +6,4 @@ Small mock-up of what it would be like adding a new area to mewgenics. There is 
 <img width="1359" height="765" alt="screenshot-2" src="https://github.com/user-attachments/assets/51362139-7daa-4521-bb70-dea84bdab438" />
 <img width="1359" height="765" alt="screenshot-3" src="https://github.com/user-attachments/assets/68228a6a-cbc4-4662-b8de-e1b9819872db" />
 <img width="1359" height="765" alt="screenshot-4" src="https://github.com/user-attachments/assets/6d3191d6-f70c-4e6b-a631-c1fa0c9c84fe" />
+<img width="1359" height="767" alt="screenshot-5" src="https://github.com/user-attachments/assets/256d5219-3398-43d8-b7e5-ced13063db86" />

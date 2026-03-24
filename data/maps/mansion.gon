@@ -9,7 +9,7 @@ chapter 2
 version 1
 
 levels {
-    folder desert // <- currently using desert's levels, for demonstration purposes.
+    folder mansion
     easy [easy]
     hard [easy] //switch this to "hard" in the brackets if we get specific hard levels in!
     rare [rare]
