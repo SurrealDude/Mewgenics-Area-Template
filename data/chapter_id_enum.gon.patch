@@ -3,9 +3,9 @@ chapter_id_enum.append [
 	mansion
 ]
 
-pause_menu_completion_hints.patch {
+pause_menu_completion_hints.append {
 	map_areas.append { //which save file flag needs to be checked for showing this area on the map
-		mansion mapflag_SewersUnlocked
+		mansion mapflag_MansionUnlocked
 	}
 }
 

@@ -1,0 +1,9 @@
+//area unlocks
+map_unlock_mansion {
+	complete_chapter lab
+	popup {
+		prompt AREA_UNLOCK_MANSION
+		frame UnlockArea_Masion
+	}
+	set_mapgen_flag MansionUnlocked
+}

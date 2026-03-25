@@ -4,4 +4,5 @@ game [
     map_custom.swf
     events_custom.swf
     modular_cutscenes_custom.swf
+    ui_custom.swf
 ]

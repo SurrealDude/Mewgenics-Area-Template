@@ -9,7 +9,7 @@ nodes.append {
 }
 
 flags.append {
-	mapflag_SewersUnlocked { //flag that controls when new exit is unlocked (using sewers for demonstration purposes)
+	MansionUnlocked {
         exit_mansion {
             locked false
         }
