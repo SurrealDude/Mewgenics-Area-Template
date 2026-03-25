@@ -2,17 +2,17 @@ mansion {
     combat_background MansionBG
     combat_ui_background UI_Background_Mansion
     
-    static_1x1_a BunkerObjects1 // using desert assets as placeholder, etc.
-    static_1x1_b BunkerObjects2
-    static_1x1_c SmallGravelPile
+    static_1x1_a MansionObjects1
+    static_1x1_b MansionObjects2
+    static_1x1_c MansionObjects2
     
-    static_2x2_a Bunker2x2
-    static_2x2_b BigGravelPile
+    static_2x2_a Mansion2x2
+    static_2x2_b Mansion2x2
     
-    static_tall_a BunkerTall1
-    static_tall_b BunkerTall2
+    static_tall_a MansionTall1
+    static_tall_b MansionTall2
     
-    debris Debris7
+    debris MansionDebris
 
     event_piece_frame mansion
 

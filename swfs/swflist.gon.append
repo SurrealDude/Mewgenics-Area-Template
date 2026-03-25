@@ -1,5 +1,6 @@
 game [
     backgrounds_custom.swf
+	static_objects_custom.swf
     npcs_custom.swf
     map_custom.swf
     events_custom.swf
