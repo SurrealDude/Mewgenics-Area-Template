@@ -18,7 +18,7 @@ mansion {
 
     global_objects {
         Lighting {
-            bigrays [1, 1]
+            ambient .8
         }
     }
 
