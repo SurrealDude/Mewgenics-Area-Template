@@ -1,0 +1,7 @@
+SoundEffectGroups.append {
+
+        ChestButton_mansion_Click {
+            files se_treasurebox_open_desert.wav
+            extra_events CardboardBox_ItemReveal
+        }
+}

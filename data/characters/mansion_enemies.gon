@@ -1,0 +1,107 @@
+LongLeg {
+    graphics {
+        movieclip LongLeg
+        name "ENEMY_LONGLEG_NAME"
+		tooltip "ENEMY_LONGLEG_DESC"
+    }
+
+    stats {
+        strength 5
+        dexterity 5
+        constitution 5
+        intelligence 5
+        speed 5
+        charisma 5
+        luck 5
+    }
+    
+    properties {
+        tag [humanoid leg]
+        faction enemies
+        health 16
+        movement 3
+        corpse_health 0
+    }
+
+    abilities {
+		move LongLegStep
+        attack LongLegKick
+
+        spells [
+			LongLegReady
+        ]
+    }
+
+    passives {
+		Trample 1
+        Undead 1
+		
+		FormChanger {
+            Alone {
+				move LongLegRegroup
+				/*passives {
+					Trample 1
+					AddHiddenTag leg
+					DeathRattleRevive {
+						ability LongLegFall
+                        immediate true
+                        even_if_stunned true
+					}
+				}*/
+				ai {
+					brain PatternBrain
+			
+					pattern {
+						do_all [*attack *LongLegReady *move]
+					}
+					/*fallback {
+						do LongLegFall
+					}*/
+			
+					decision_weights semi_simple
+					move_weights stay_close
+                    end_turn_on_formswitch true
+				}
+            }
+            Ready {
+                partial_animation_suffix Ready
+				ai {
+					brain PatternBrain
+			
+					pattern {
+						do_all [*attack *move]
+					}
+			
+					decision_weights semi_simple
+					move_weights stay_close
+				}
+            }
+            initial_form Alone
+        }
+    }
+	
+    ai {
+        brain NoBrain //brains set in FormChanger
+        decision_weights semi_simple
+        move_weights stay_close
+    }
+}
+/*Fallen {
+             animation_suffix Fallen
+	name "ENEMY_HALFMAN_NAME"
+	tooltip "ENEMY_HALFMAN_DESC"
+	uifloaters_offset 1.5
+	move None
+	attack HalfManKick
+	
+	ai {
+		brain PatternBrain
+
+		pattern {
+			do attack
+		}
+
+		decision_weights careless
+		move_weights stay_close
+	}
+}*/

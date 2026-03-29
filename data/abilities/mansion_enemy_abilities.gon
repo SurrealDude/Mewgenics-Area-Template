@@ -1,0 +1,177 @@
+LongLegReady {
+    template melee_attack
+    
+    meta {
+        name "EABILITY_LEGREADY_NAME"
+        animate_name true
+    }
+
+    graphics {
+        animation readyup
+        dont_orient true
+    }
+	
+	sounds {
+        ontrigger Ani_Trampy_walk_Frame2
+    }
+
+    cost {
+		cantrip true
+        mana 0
+    }
+
+    target {
+        target_mode none
+        aoe_mode standard
+        min_aoe 1
+        max_aoe 1
+        aoe_restrictions [must_have_tag]
+        target_requires_tag leg
+    }
+
+    damage_instance {
+        type melee
+        damage 0
+		piercing true
+		cant_miss true
+
+        effects {
+            ApplyToSource {
+                FormChange Ready
+            }
+        }
+		
+        ai_base_score 999999
+    }
+}
+LongLegStep {
+    template jump_move
+
+    graphics {
+        full_jump_animation step
+        full_jump_sync_frames 31
+        full_jump_windup_frames 9
+    }
+
+    cost {
+        move_points 1
+    }
+    
+    target {
+        min_range 0
+        max_range mov
+        restrictions [must_be_moveable]
+    }
+
+    damage_instance {
+        damage 4+bonus_melee_damage
+    }
+	
+    self_damage {
+        effects {
+            FormChange {
+                form Alone
+            }
+        }
+    }
+}
+LongLegRegroup {
+    template jump_move
+
+    graphics {
+        full_jump_animation step
+        full_jump_sync_frames 31
+        full_jump_windup_frames 5
+    }
+
+    cost {
+        move_points 1
+		act_points 1
+    }
+    
+    target {
+        min_range 0
+        max_range mov
+        restrictions [must_be_moveable must_be_adjacent_to_ally]
+    }
+
+    damage_instance {
+        damage 4+bonus_melee_damage
+
+        effects {
+            IgnoreSelf 1
+        }
+    }
+}
+LongLegKick {
+    template melee_attack
+
+    graphics {
+        animation attack
+    }
+	
+	sounds {
+        ontrigger Ani_Cat_headbuttdashEnd_Frame2
+    }
+	
+    cost {
+        mana 0
+        must_be_first_nonmove_action true
+    }
+	
+	target {
+        prioritize_dont_change_direction true
+	}
+
+    damage_instance {
+        damage 4+bonus_melee_damage
+        knockback 10
+    }
+}
+/*LongLegFall {
+    template self_buff
+
+    graphics {
+        animation fall
+    }
+	
+    damage_instance {
+        effects {
+            FormChange Fallen
+            Cleanse 0
+            InstantMaxHealthUp 8
+            FullHeal 1
+        }
+        ai_base_score 999999
+    }
+}
+HalfManKick {
+    template melee_attack
+
+    cost {
+        mana 0
+    }
+
+    graphics {
+        animation attack
+    }
+	
+	target {
+        target_mode direction
+        aoe_mode line
+        knockback_mode orientation
+        
+        max_aoe 2
+        prioritize_dont_change_direction true
+        restrictions none
+	}
+
+    damage_instance {
+        damage 4+bonus_melee_damage
+        knockback 2
+    }
+
+    self_damage {
+        knockback -2
+    }
+}*/

@@ -1,9 +1,10 @@
 //area unlocks
 map_unlock_mansion {
-	complete_chapter lab
+	complete_chapter meatworld
 	popup {
 		prompt AREA_UNLOCK_MANSION
 		frame UnlockArea_Masion
 	}
+	trigger_npc_sequence_tomorrow jack_mansion_intro
 	set_mapgen_flag MansionUnlocked
 }

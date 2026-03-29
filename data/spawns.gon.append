@@ -1,0 +1,11 @@
+300 {
+    editor {
+        category 3
+        image ["mansion/longleg.png"]
+        paint false
+        name "Long Legs"
+    }
+    
+    object LongLeg
+	value 1
+}

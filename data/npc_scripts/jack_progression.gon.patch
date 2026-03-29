@@ -1,0 +1,28 @@
+sequences.append {
+	//Jack unlock intros
+	
+	jack_mansion_intro {
+		lock_controls 1
+		set_state blocking
+
+		dialog NPC_JACK_JACK_MANSION_INTRO_1
+		dialog NPC_JACK_JACK_MANSION_INTRO_2
+		set_state closeup
+		dialog NPC_JACK_JACK_MANSION_INTRO_3
+		set_state blocking
+		dialog NPC_JACK_JACK_MANSION_INTRO_4
+		set_state verycloseup
+		dialog NPC_JACK_JACK_MANSION_INTRO_5
+		set_state blocking
+		dialog NPC_JACK_JACK_MANSION_INTRO_6
+		dialog NPC_JACK_JACK_MANSION_INTRO_7
+
+		set_state idle
+		unlock_controls 1
+	}
+	
+		//default  happy  veryhappy  sad  angry  veryangry
+        //questioning  whispering  pondering  mocking
+        //inlove  confused  paranoid  shocked  scared  spacedout
+		//grossedout bored winking
+}

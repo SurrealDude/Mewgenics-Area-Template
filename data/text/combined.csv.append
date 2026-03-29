@@ -1,7 +1,38 @@
-AREA_NAME_MANSION,The Mansion,,La Mansión,The Mansion,The Mansion,The Mansion,The Mansion
-AREA_NAME_MANSION_BANNER,MANSION,,MANSIÓN,MANSION,MANSION,MANSION,MANSION
-AREA_UNLOCK_MANSION,You can now adventure to The Mansion!,,¡Ya puedes explorar la mansión!,You can now adventure to The Mansion!,You can now adventure to The Mansion!,You can now adventure to The Mansion!,You can now adventure to The Mansion!
-,,,,,,,
-//tracy_adventure_shop_script,,,,,,,
-NPC_TRACY_SHOP_WELCOME_MANSION_1,"I snuck into this mansion, but now I can't find an exit...",,"Me colé en esta mansión, pero no veo ninguna salida...","I snuck into this mansion, but now I can't find an exit...","I snuck into this mansion, but now I can't find an exit...","I snuck into this mansion, but now I can't find an exit...","I snuck into this mansion, but now I can't find an exit..."
-NPC_TRACY_SHOP_WELCOME_MANSION_2,Will you hurry?! I'm trying to keep a low profile!!,,¡¿Te puedes dar prisa?! ¡¡Trato de mantener el perfil bajo!!,Will you hurry?! I'm trying to keep a low profile!!,Will you hurry?! I'm trying to keep a low profile!!,Will you hurry?! I'm trying to keep a low profile!!,Will you hurry?! I'm trying to keep a low profile!!
+AREA_NAME_MANSION,The Mansion,,La Mansión
+AREA_NAME_MANSION_BANNER,MANSION,,MANSIÓN
+AREA_UNLOCK_MANSION,You can now adventure to The Mansion!,,¡Ya puedes explorar la mansión!
+,,,
+//tracy_adventure_shop_script,,,
+NPC_TRACY_SHOP_WELCOME_MANSION_1,"I snuck into this mansion, but now I can't find an exit...",,"Me colé en esta mansión, pero no veo ninguna salida..."
+NPC_TRACY_SHOP_WELCOME_MANSION_2,Will you hurry?! I'm trying to keep a low profile!!,,¡¿Te puedes dar prisa?! ¡¡Trato de mantener el perfil bajo!!
+NPC_JACK_JACK_MANSION_INTRO_1,"[m:questioning]Seen that big mansion?
+It's a very big house, [m:mocking]bigger than yours!",,"[m:questioning]¿Viste esa gran mansión?
+Es una casa muy grande [m:mocking]¡más grande que la tuya!"
+NPC_JACK_JACK_MANSION_INTRO_2,"[m:pondering]I hear lots of people live there, must be a big big family.",,"[m:pondering]Creo que mucha gente vive allí, debe ser una familia muy muy grande."
+NPC_JACK_JACK_MANSION_INTRO_3,"[m:whispering][s:.7]That house is really old too, older than Nona.[/s]",,"[m:whispering][s:.7]Esa casa también es bastante antigua, más antigua que la abuelita.[/s]"
+NPC_JACK_JACK_MANSION_INTRO_4,"[m:veryhappy]Has to be lots of Nonas in there, too.
+All sleeping for ages!",,"[m:veryhappy]Tienen que haber muchas abuelitas allí también.
+¡Todas durmiendo por siglos!"
+NPC_JACK_JACK_MANSION_INTRO_5,[m:shocked]But last night I heard weird music coming from there!,,[m:shocked]¡Pero anoche escuché música venir de allí!
+NPC_JACK_JACK_MANSION_INTRO_6,"[m:default]Dunno what that's about!
+Maybe they woke up?",,"[m:default]¡Ni idea de que será!
+¿A lo mejor se despertaron?"
+NPC_JACK_JACK_MANSION_INTRO_7,[m:happy]Must have been a long dream they had!,,[m:happy]¡Tienen que haberse soñado la vida!
+,,,
+//enemies,,,
+ENEMY_LONGLEG_NAME,Long Leg,,Pierna larga
+ENEMY_LONGLEG_DESC,"Hits in front of it at the start of its turn with Knockback 10.
+Has a stomp attack when next to another leg.
+Can leap attack next to allies in range.
+Undead.",,
+,,,
+,,,
+,,,
+,,,
+//abilities,,,
+EABILITY_LEGREADY_NAME,Big Step,,Paso largo
+,,,
+//scrapped,,,
+ENEMY_HALFMAN_NAME,Half Man,,
+ENEMY_HALFMAN_DESC,"Kicks units 2 tiles in front of it at the start of its turn, knocking itself back.
+Undead.",,

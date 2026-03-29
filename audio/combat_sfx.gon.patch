@@ -1,0 +1,18 @@
+SoundEffectGroups.append {
+    // MANSION ENEMIES 
+
+        // Long Leg
+            Ani_LongLeg_step_Frame2 {
+                extra_events SE_Cat_StompWalk
+			}
+            Ani_LongLeg_step_Frame36 {
+                extra_events SE_Cat_StompWalk
+			}
+            Ani_LongLeg_stepReady_Frame2 {
+                extra_events SE_Cat_StompWalk
+			}
+            Ani_LongLeg_stepReady_Frame36 {
+                extra_events SE_Cat_StompWalk
+			}
+			
+}
