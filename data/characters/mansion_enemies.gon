@@ -105,3 +105,114 @@ LongLeg {
 		move_weights stay_close
 	}
 }*/
+
+Vampire {
+    graphics {
+        movieclip Vampire
+        name "ENEMY_VAMPIRE_NAME"
+        uifloaters_offset 2
+		tooltip "ENEMY_VAMPIRE_DESC"
+    }
+
+    stats {
+        strength 5
+        dexterity 5
+        constitution 5
+        intelligence 5
+        speed 5
+        charisma 5
+        luck 5
+    }
+    
+    properties {
+        tag humanoid
+        faction enemies
+        health 24
+		initial_health 18
+        //movement 3
+    }
+
+    abilities {
+        move DefaultMove
+        attack VampireAttack
+        
+        spells [
+        ]
+    }
+
+    passives {
+		Undead 1
+        FormChanger {
+			Person {
+                ai {
+                    brain PatternBrain
+
+                    pattern {
+                        do_all [attack, move]
+                    }
+
+                    decision_weights default
+                    move_weights stay_close
+                }
+            }
+            Baby {
+                animation_suffix Baby
+                name "ENEMY_VAMPIREBABY_NAME"
+				tooltip "ENEMY_VAMPIREBABY_DESC"
+
+                ai {
+                    brain PatternBrain
+
+                    pattern {
+                        do_all [attack, move]
+                    }
+
+                    decision_weights default
+                    move_weights stay_close
+                }
+            }
+            Lady {
+                animation_suffix Lady
+                name "ENEMY_VAMPIREBABY_NAME"
+				tooltip "ENEMY_VAMPIREBABY_DESC"
+
+                ai {
+                    brain PatternBrain
+
+                    pattern {
+                        do_all [attack, move]
+                    }
+
+                    decision_weights default
+                    move_weights stay_close
+                }
+            }
+
+            initial_form Person
+        }
+    }
+    
+    ai {
+        brain NoBrain //brains set in FormChanger
+        decision_weights default
+        move_weights keep_distance_always_move
+    }
+}
+VampireBaby {
+    variant_of Vampire
+
+    passives {
+       FormChanger {
+           initial_form Baby
+       }
+    }
+}
+VampireLady {
+    variant_of Vampire
+
+    passives {
+       FormChanger {
+           initial_form Lady
+       }
+    }
+}

@@ -3,9 +3,31 @@
         category 3
         image ["mansion/longleg.png"]
         paint false
-        name "Long Legs"
+        name "Long Leg"
     }
     
     object LongLeg
+	value 1
+}
+301 {
+    editor {
+        category 3
+        image ["mansion/vampire.png"]
+        paint false
+        name "Vampire"
+    }
+    
+    object Vampire
+	value 1
+}
+302 {
+    editor {
+        category 3
+        image ["mansion/vampirebaby.png"]
+        paint false
+        name "Vampire Baby"
+    }
+    
+    object VampireBaby
 	value 1
 }

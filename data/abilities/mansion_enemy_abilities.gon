@@ -175,3 +175,34 @@ HalfManKick {
         knockback -2
     }
 }*/
+
+/*VampireBare {
+	template self_buff
+	
+    meta {
+        name "EABILITY_BAREFANGS_NAME"
+        animate_name true
+    }
+	
+	graphics {
+        animation bare
+    }
+	
+    damage_instance {
+        effects {
+            Lifesteal 1
+        }
+        ai_base_score 999999
+    }
+}*/
+VampireAttack {
+    template melee_attack
+
+    damage_instance {
+        damage 6+bonus_melee_damage
+		
+        effects {
+            FlatLeech 6+bonus_melee_damage
+		}
+    }
+}
