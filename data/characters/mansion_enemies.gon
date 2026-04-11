@@ -3,6 +3,7 @@ LongLeg {
         movieclip LongLeg
         name "ENEMY_LONGLEG_NAME"
 		tooltip "ENEMY_LONGLEG_DESC"
+        shadow_size 1.2
     }
 
     stats {
@@ -19,7 +20,7 @@ LongLeg {
         tag [humanoid leg]
         faction enemies
         health 16
-        movement 3
+        movement 2
         corpse_health 0
     }
 
@@ -29,6 +30,7 @@ LongLeg {
 
         spells [
 			LongLegReady
+			LongLegFall
         ]
     }
 
@@ -52,11 +54,11 @@ LongLeg {
 					brain PatternBrain
 			
 					pattern {
-						do_all [*attack *LongLegReady *move]
+						do_all [*attack *LongLegReady *move *attack *move]
 					}
-					/*fallback {
+					fallback {
 						do LongLegFall
-					}*/
+					}
 			
 					decision_weights semi_simple
 					move_weights stay_close
@@ -81,7 +83,7 @@ LongLeg {
     }
 	
     ai {
-        brain NoBrain //brains set in FormChanger
+        brain NoBrain
         decision_weights semi_simple
         move_weights stay_close
     }
@@ -106,12 +108,12 @@ LongLeg {
 	}
 }*/
 
-Vampire {
+VampireGuy {
     graphics {
-        movieclip Vampire
-        name "ENEMY_VAMPIRE_NAME"
+        movieclip VampireGuy
+        name "ENEMY_VAMPIREGUY_NAME"
+		tooltip "ENEMY_VAMPIREGUY_DESC"
         uifloaters_offset 2
-		tooltip "ENEMY_VAMPIRE_DESC"
     }
 
     stats {
@@ -129,90 +131,126 @@ Vampire {
         faction enemies
         health 24
 		initial_health 18
-        //movement 3
+        mana 1
     }
 
     abilities {
         move DefaultMove
-        attack VampireAttack
+        attack VampireDagger
         
         spells [
+			VampireBite
+        ]
+    }
+
+    passives {
+		Undead 1
+    }
+    
+    ai {
+        brain GenericBrain
+        decision_weights default
+        move_weights stay_close
+    }
+}
+VampireGal {
+    variant_of VampireGuy
+	
+	graphics {
+        movieclip VampireGal
+        name "ENEMY_VAMPIREGAL_NAME"
+        desc "ENEMY_VAMPIREGAL_DESC"
+    }
+}
+VampireBaby {
+    graphics {
+        movieclip Bat
+        name "ENEMY_VAMPIREBABY_NAME"
+        move_speed_multiplier 1.75
+        uifloaters_offset 1.5
+        scale .75
+        default_attack_animation attack2
+		
+		tooltip "ENEMY_VAMPIREBABY_DESC"
+    }
+
+    stats {
+        strength 1
+        dexterity 5
+        constitution 5
+        intelligence 5
+        speed 2
+        charisma 5
+        luck 6
+    }
+    
+    properties {
+        tag humanoid
+        faction enemies
+        health 24
+		initial_health 12
+    }
+
+    abilities {
+        move DefaultMove
+        attack VampireBabyBite
+        
+        spells [
+			VampireBabyTransform
+			
+			BabyBatTransform
         ]
     }
 
     passives {
 		Undead 1
         FormChanger {
-			Person {
-                ai {
-                    brain PatternBrain
-
-                    pattern {
-                        do_all [attack, move]
-                    }
-
-                    decision_weights default
-                    move_weights stay_close
-                }
-            }
             Baby {
-                animation_suffix Baby
-                name "ENEMY_VAMPIREBABY_NAME"
-				tooltip "ENEMY_VAMPIREBABY_DESC"
 
                 ai {
                     brain PatternBrain
-
+					
                     pattern {
-                        do_all [attack, move]
+						do_all [move attack *VampireBabyTransform]
                     }
 
+                    end_turn_on_formswitch true
                     decision_weights default
                     move_weights stay_close
                 }
             }
-            Lady {
-                animation_suffix Lady
-                name "ENEMY_VAMPIREBABY_NAME"
-				tooltip "ENEMY_VAMPIREBABY_DESC"
+            Bat {
+                //animation_suffix Bat
+                name "ENEMY_BABYBAT_NAME"
+				tooltip "ENEMY_BABYBAT_DESC"
+				attack BabyBatFlurry
+				
+				properties {
+					flying true
+				}
+				
+				passives {
+					DodgeChance 50%
+				}
 
                 ai {
                     brain PatternBrain
-
+					
                     pattern {
-                        do_all [attack, move]
+                        do_all [attack move *BabyBatTransform]
                     }
 
+                    end_turn_on_formswitch true
                     decision_weights default
-                    move_weights stay_close
+                    move_weights keep_distance_always_move
                 }
             }
 
-            initial_form Person
+            initial_form Baby
         }
     }
     
     ai {
-        brain NoBrain //brains set in FormChanger
-        decision_weights default
-        move_weights keep_distance_always_move
-    }
-}
-VampireBaby {
-    variant_of Vampire
-
-    passives {
-       FormChanger {
-           initial_form Baby
-       }
-    }
-}
-VampireLady {
-    variant_of Vampire
-
-    passives {
-       FormChanger {
-           initial_form Lady
-       }
+        brain NoBrain
     }
 }

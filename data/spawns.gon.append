@@ -12,12 +12,12 @@
 301 {
     editor {
         category 3
-        image ["mansion/vampire.png"]
+        image ["mansion/vampireguy.png"]
         paint false
-        name "Vampire"
+        name "Vampire Guy"
     }
     
-    object Vampire
+    object VampireGuy
 	value 1
 }
 302 {
@@ -29,5 +29,16 @@
     }
     
     object VampireBaby
+	value 1
+}
+303 {
+    editor {
+        category 3
+        image ["mansion/vampiregal.png"]
+        paint false
+        name "Vampire Gal"
+    }
+    
+    object VampireGal
 	value 1
 }

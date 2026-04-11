@@ -21,18 +21,49 @@ NPC_JACK_JACK_MANSION_INTRO_7,[m:happy]Must have been a long dream they had!,,[m
 ,,,
 //enemies,,,
 ENEMY_LONGLEG_NAME,Long Leg,,Pierna larga
-ENEMY_LONGLEG_DESC,"Hits in front of it at the start of its turn with Knockback 10.
-Has a stomp attack when next to another leg.
-Can leap attack next to allies in range.
+ENEMY_LONGLEG_DESC,Melee attacks with Knockback 10. Can step in range when next to another leg. Can step next to allies. Loses balance if separated. Undead.,,Ataca con 10 de retroceso. Puede saltar dentro de su alcance cuando está junto a otra pierna. Puede saltar cerca de sus aliados. Pierde el equilibrio si se separa. Muerto viviente.
+ENEMY_VAMPIREGUY_NAME,Vampire Guy,,
+ENEMY_VAMPIREGUY_DESC,"Bite attacks bleeding units with Lifesteal 2, removing one stack of Bleed. Has a dagger attack that inflicts Bleed.
+Undead.",,
+ENEMY_VAMPIREGAL_NAME,Vampire Gal,,
+ENEMY_VAMPIREGAL_DESC,"Bite attacks bleeding units with Lifesteal 2, removing one stack of Bleed. Has a dagger attack that inflicts Bleed.
+Undead.",,
+ENEMY_VAMPIREBABY_NAME,Vampire Baby,,
+ENEMY_VAMPIREBABY_DESC,"Has a weak bite attack that hits with Lifesteal for every stack of Bleed the target has and removes Bleed.
+Transforms into baby bat.
+Undead.",,
+ENEMY_BABYBAT_NAME,Baby Bat,,
+ENEMY_BABYBAT_DESC,"Its melee flurry inflicts Bleed but does no damage. Transforms into vampire baby. 50% Dodge Chance.
 Undead.",,
 ,,,
-,,,
-,,,
+//bosses,,,
+ENEMY_VICTIM_NAME,Victim,,
+ENEMY_VICTIM_DESC,Don't get caught!,,
+ENEMY_PAWPRINTS_NAME,Paw Prints,,
+ENEMY_PAWPRINTS_DESC,Tries to get information out of suspects. Will call her brigade and inflict permanent Marked on all enemy cats if she finds the killer.,,
+ENEMY_SIDEKICK_NAME,Sidekick,,
+ENEMY_SIDEKICK_DESC,Will try to get Paw Prints' attention after finding a clue.,,
+ENEMY_BRIGADEKITTY_NAME,Brigade Kitty,,
+ENEMY_BRIGADEKITTY_DESC,Wields a blunderbuss!,,
+ENEMY_LILDRAC_NAME,Lil' Drac,,
+ENEMY_LILDRAC_DESC,"Has a wide bite attack that removes one stack of Bleed from enemies, then heals all allies and itself. Counterattacks when hit. Undead.",,
+ENEMY_SISRUE_NAME,Sister Rue,,
+ENEMY_SISRUE_DESC,Has a weak melee attack that inflicts Bleed. Shoots a ghostly barrage in a large cone. Counterattacks when hit. Undead.,,
+ENEMY_GRANNY_NAME,Granny Grievance,,
+ENEMY_GRANNY_DESC,Blind. Has a magic attack that hits all units in a line. Will always try to attack bleeding units. Counterattacks when hit. Undead.,,
+ENEMY_MRFANGS_NAME,Mr. Fangs,,
+ENEMY_MRFANGS_DESC,Has a melee spin attack that inflicts Bleed. Runs away when damaged by an ally.,,
+ENEMY_THECOUNT_NAME,The Count,,
+ENEMY_THECOUNT_DESC,Doesn't take damage from Bleed. Drains Bleed from allies. Gives all of his Bleed to an enemy in range. Undead.,,
 ,,,
 //abilities,,,
 EABILITY_LEGREADY_NAME,Big Step,,Paso largo
+EABILITY_LEGFALL_NAME,Lost Balance!,,Sin equilibrio!
+EABILITY_BLEEDFORME_NAME,Bleed For Me!,,
 ,,,
 //scrapped,,,
 ENEMY_HALFMAN_NAME,Half Man,,
 ENEMY_HALFMAN_DESC,"Kicks units 2 tiles in front of it at the start of its turn, knocking itself back.
 Undead.",,
+EABILITY_BATFORM_NAME,Bat Form!,,Forma de murciélago!
+EABILITY_VAMPIREFORM_NAME,Vampire Form!,,Forma de vampiro!

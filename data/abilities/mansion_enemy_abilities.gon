@@ -9,6 +9,7 @@ LongLegReady {
     graphics {
         animation readyup
         dont_orient true
+        dont_visualize_ai true
     }
 	
 	sounds {
@@ -18,6 +19,7 @@ LongLegReady {
     cost {
 		cantrip true
         mana 0
+		act_points 0
     }
 
     target {
@@ -86,7 +88,6 @@ LongLegRegroup {
 
     cost {
         move_points 1
-		act_points 1
     }
     
     target {
@@ -114,38 +115,42 @@ LongLegKick {
         ontrigger Ani_Cat_headbuttdashEnd_Frame2
     }
 	
-    cost {
-        mana 0
-        must_be_first_nonmove_action true
-    }
-	
-	target {
+	/*target {
         prioritize_dont_change_direction true
-	}
+	}*/
 
     damage_instance {
         damage 4+bonus_melee_damage
         knockback 10
     }
 }
-/*LongLegFall {
+LongLegFall {
     template self_buff
-
-    graphics {
-        animation fall
+	
+    meta {
+        name "EABILITY_LEGFALL_NAME"
+        animate_name true
+    }
+	
+	graphics {
+        dont_orient true
+        dont_visualize_ai true
+    }
+	
+    cost {
+        move_points 1
     }
 	
     damage_instance {
+        type none
+        cant_miss true
         effects {
-            FormChange Fallen
-            Cleanse 0
-            InstantMaxHealthUp 8
-            FullHeal 1
+            Die 1
         }
         ai_base_score 999999
     }
 }
-HalfManKick {
+/*HalfManKick {
     template melee_attack
 
     cost {
@@ -195,14 +200,281 @@ HalfManKick {
         ai_base_score 999999
     }
 }*/
-VampireAttack {
+VampireDagger {
     template melee_attack
+	
+	meta {
+		name "EABILITY_BLEEDFORME_NAME"
+	}
 
     damage_instance {
-        damage 6+bonus_melee_damage
+		damage 3+bonus_melee_damage
+		effects {
+			Bleed 1
+			Conditional_Speculative { // make ai prefer non-bleeding units
+				Conditional_HasStatus {
+					status Bleed
+					ApplyToSource {
+						DieViolently 1
+					}
+				}
+			}
+		}
+    }
+}
+VampireBite {
+    template melee_attack
+	
+	graphics {
+        animation bite
+    }
+	
+	target {
+		restrictions [must_have_living_character]
+	}
+
+    damage_instance {
+        damage 3+bonus_melee_damage
+        piercing true
 		
         effects {
-            FlatLeech 6+bonus_melee_damage
+			Conditional_HasStatus {
+				status Bleed
+				Leech 2
+				Conditional_Speculative { // make the ai think it instakills by sucking
+					DieViolently 1
+				} Else {
+					RemoveStatusStacks {
+						status Bleed
+						stacks 1
+					}
+					Conditional_HasStatus {
+						status Poison
+						ApplyToSource {
+							Poison 2
+						}
+						RemoveStatusStacks {
+							status Poison
+							stacks 1
+						}
+					}
+				}
+			} Else {
+				IgnoreDamage 1
+			}
 		}
+    }
+}
+
+VampireBabyBite {
+    variant_of VampireBite
+	
+	target {
+        multihit 98
+	}
+	
+    temporary_effects {
+		Fury 0
+    }
+
+    damage_instance {
+        effects {
+			Conditional_HasStatus {
+				status Bleed
+				Leech 1
+			}
+		}
+    }
+}
+VampireBabyTransform {
+    template self_buff
+
+    graphics { 
+        dont_orient true
+        animation transform
+        dont_visualize_ai true
+    }
+	
+	cost {
+		cantrip true
+    }
+
+    damage_instance {
+        effects {
+            FormChange {
+                form "Bat"
+            }
+            MovementUp 4
+        }
+        ai_base_score 9999
+    }
+}
+BabyBatFlurry {
+    template melee_attack
+
+    target {
+        multihit 5
+    }
+
+    damage_instance {
+        damage 0
+        type melee
+
+        effects {
+            Bleed [1 .5]
+        }
+        //ai_base_score 100
+    }
+}
+BabyBatTransform {
+    template self_buff
+
+    graphics { 
+        dont_orient true
+        animation transform
+        dont_visualize_ai true
+    }
+	
+	cost {
+		cantrip true
+    }
+
+    damage_instance {
+        effects {
+            FormChange {
+                form "Baby"
+            }
+            MovementUp -4
+        }
+        ai_base_score 9999
+    }
+}
+
+VictimMurderer {
+    template targeted_status
+	chain_ability VictimNearestSuspect
+
+    graphics {
+        animation none
+        particle none
+    }
+
+    target {
+        max_range 20
+    }
+
+    damage_instance {
+        damage 0
+        cant_miss true
+
+        effects {
+            CanApplyToInanimate {
+                Doomed 99
+            }
+        }
+    }
+}
+VictimNearestSuspect {
+    template spell
+
+    graphics {
+        particle none
+        animation none
+        dont_visualize_ai true
+    }
+    
+    target {
+        target_mode random_closest_tile
+        recalc_target_on_castpoint true
+        min_range 1
+        max_range 20
+		min_aoe 0
+		max_aoe 0
+		multihit 99
+        restrictions [must_have_living_character]
+		range_considers_character_size true
+    }
+
+    damage_instance {
+        damage 0
+        cant_miss true
+
+        effects {
+			Conditional_HasStatus {
+				status Tarred
+			} Else {
+				Tarred 99
+			}
+        }
+        ai_base_score 999999
+    }
+}
+PawPrintsAggro {
+    template spell
+
+    graphics {
+        particle none
+        animation scratch
+        dont_visualize_ai true
+    }
+    
+    target {
+        target_mode none
+        aoe_mode all
+		//max_targets 1
+        restrictions aoe_must_exist
+        //aoe_restrictions must_have_aggro_target
+		aoe_restrictions [must_have_living_character]
+    }
+
+    damage_instance {
+        damage 0
+		cant_miss true
+
+        effects {
+			Conditional_HasStatus {
+				status Tarred
+				CanApplyToInanimate {
+					GetAggroTarget 1
+				}
+				Immobile 99
+			}
+        }
+        ai_base_score 999999
+    }
+}
+PawPrintsKill {
+    template spell
+
+    meta {
+        name "EABILITY_FOUNDMURDERER_NAME"
+        animate_name true
+    }
+
+    graphics {
+        particle none
+        animation scratch
+        dont_visualize_ai true
+    }
+    
+    target {
+        target_mode none
+        aoe_mode all
+        restrictions aoe_must_exist
+        aoe_restrictions must_have_aggro_target
+		//aoe_restrictions [must_have_living_character]
+    }
+
+    damage_instance {
+        damage 0
+        ai_base_score 999999
+
+        effects {
+			/*Conditional_HasStatus {
+				status Doomed
+				DieViolently 1
+			}*/
+			DieViolently 1
+        }
     }
 }

@@ -1,0 +1,117 @@
+TheVictim {
+	graphics {
+        movieclip LordBunga
+        name "ENEMY_VICTIM_NAME"
+        uifloaters_offset 3
+		tooltip "ENEMY_VICTIM_DESC"
+    }
+
+    stats {
+        strength  5
+        dexterity 5
+        constitution 5
+        intelligence 5
+        speed 5
+        charisma 5
+    }
+    
+    properties {
+        tag humanoid
+        faction enemies
+        type boss
+        takes_turns false
+        can_be_champion false
+        health 2
+        size 2x2
+        lock_orientation [0 -1]
+        banned_elite_buffs [Twin]
+    }
+
+    abilities {
+        move None
+        attack None
+		
+		spells [
+			VictimMurderer
+			VictimNearestSuspect
+		]
+    }
+
+    passives {
+		Undead 1
+		Trample 1
+        KnockbackImmunity 1
+		DeathRattle {
+            ability VictimMurderer
+            //is_dying_animation true
+            must_target_killer true
+            pop_corpse false
+        }
+        FormChanger {
+            Default {
+                animation_suffix Chair
+			}
+		}
+    }
+    
+    ai {
+        brain NoBrain // brain set in form changer
+    }
+}
+
+PawPrints {
+    graphics {
+        movieclip Trampy
+        name "ENEMY_PAWPRINTS_NAME"
+        uifloaters_offset 1.75
+		tooltip "ENEMY_PAWPRINTS_DESC"
+    }
+
+    stats {
+        strength  5
+        dexterity 5
+        constitution 5
+        intelligence 5
+        speed 5
+        charisma 5
+    }
+    
+    properties {
+        tag cat
+        faction enemies
+        type boss
+
+        health 99
+        movement 3
+        dispersed_bonus_turns 3
+		
+        banned_elite_buffs [Twin]
+    }
+
+    abilities {
+        move DefaultMove
+        attack BasicMelee
+        
+        spells [
+			PawPrintsKill
+			PawPrintsAggro
+        ]
+    }
+
+    passives {
+        Buddy TheVictim
+        AbilityWhenBuddyDies PawPrintsAggro
+        PrioritizeAggroTarget 1
+    }
+    
+    ai {
+        brain PatternBrain
+
+        pattern {
+            do_all [attack move PawPrintsKill]
+        }
+		
+        decision_weights default
+        move_weights towards_aggro_stay_close
+    }
+}
